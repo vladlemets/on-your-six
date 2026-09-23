@@ -8,7 +8,6 @@ import { VolunteerPage } from "./pages/Volunteer";
 import { ContactPage } from "./pages/Contact";
 import { NewsPage } from "./pages/News";
 import { ArticleDetailPage } from "./pages/ArticleDetail";
-import { FAQPage } from "./pages/FAQ";
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicy";
 import { TermsOfServicePage } from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
@@ -26,7 +25,6 @@ export function App() {
             <Route path="/programs" element={<ProgramsPage />} />
             <Route path="/volunteer" element={<VolunteerPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/faq" element={<FAQPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/terms-of-service" element={<TermsOfServicePage />} />
             <Route path="*" element={<NotFound />} />

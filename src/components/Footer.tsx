@@ -78,8 +78,8 @@ export const Footer: React.FC = () => {
           </p>
         </div>
 
-        {/* Quick Links | VFF — side by side */}
-        <div className="grid grid-cols-2 gap-8 sm:gap-12 max-w-xl">
+        {/* Quick Links | VFF — side by side; centered as a pair on mobile, content left-aligned */}
+        <div className="grid grid-cols-2 gap-8 sm:gap-12 max-w-xl mx-auto sm:mx-0 text-left">
           <div>
             <h4 className="text-lg font-bold text-white mb-4 uppercase tracking-wider">Quick Links</h4>
             <ul className="space-y-2.5 text-sm">
@@ -159,11 +159,6 @@ export const Footer: React.FC = () => {
               <li>
                 <Link to="/privacy-policy" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
                   Privacy
-                </Link>
-              </li>
-              <li>
-                <Link to="/faq" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
-                  FAQ
                 </Link>
               </li>
             </ul>
