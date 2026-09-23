@@ -30,3 +30,7 @@ coverage/
 
 # Vite
 .vite/
+
+# LeadConnector vibe tagger (generated at dev start)
+src/tailwind.config.vibe.json
+*.vibe.json
