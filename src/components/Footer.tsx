@@ -61,7 +61,21 @@ export const Footer: React.FC = () => {
               />
             </a>
           </div>
-          <p className="text-gray-300 text-sm leading-relaxed max-w-sm">{OY6.tagline}.</p>
+          <p className="text-gray-300 text-sm leading-relaxed max-w-md">
+            On Your Six began as an incubator for SafeHaven housing pathways and wrap-around support
+            for veterans and first responders. That work proved the model — and today On Your Six and
+            SafeHaven continue as permanent programs of{" "}
+            <a
+              href={VFF.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#ff5e00] hover:underline font-medium"
+            >
+              {VFF.name}
+            </a>
+            . This site is the program home and a chronicle of that success: housing access, case
+            management, and a lasting pathway to stability, wellness, and purpose.
+          </p>
         </div>
 
         {/* Quick Links + VFF nudged right for balance */}
