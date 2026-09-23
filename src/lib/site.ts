@@ -17,6 +17,8 @@ export const VFF = {
   crisisTel: "+18558388255",
   logoUrl:
     "https://vibe.filesafe.space/1778907893267638253/attachments/1b434fe9-b0ff-4d7e-9a26-a3e13110a3c6.png",
+  /** Navy/red lockup for white or light backgrounds */
+  logoUrlLight: "/vff-logo-light.png",
   fiscalSponsor: "Capstone Legacy Foundation",
   ein: "20-3752969",
 } as const;

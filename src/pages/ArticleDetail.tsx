@@ -22,7 +22,7 @@ export const articlesData: ChronicleArticle[] = [
     date: "2026",
     excerpt:
       "Congratulations on a job well done. The On Your Six incubator chapter is complete — SafeHaven and On Your Six now continue as permanent programs under Veterans First Foundation.",
-    image: VFF.logoUrl,
+    image: VFF.logoUrlLight,
     content: [
       "Congratulations — job well done. What began as the **On Your Six** incubator, working hand-in-hand with the **SafeHaven** initiative to open housing pathways for veterans, has reached its next chapter.",
       "On Your Six is no longer a standalone foundation experiment. It has been absorbed into **Veterans First Foundation** as a **permanent program**, alongside SafeHaven. The mission did not end — it graduated.",
@@ -130,7 +130,7 @@ export const ArticleDetailPage: React.FC = () => {
               src={article.image}
               alt={article.title}
               className={`w-full h-auto max-h-[500px] rounded-xl shadow-sm border border-gray-100 ${
-                article.id === "3" ? "object-contain bg-[#0a0a0a] p-10" : "object-cover"
+                article.id === "3" ? "object-contain bg-white p-10" : "object-cover"
               }`}
             />
 

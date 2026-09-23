@@ -41,7 +41,7 @@ export const NewsPage: React.FC = () => {
                   src={article.image}
                   alt={article.title}
                   className={`w-full md:w-2/5 h-64 md:h-auto object-cover ${
-                    article.id === "3" ? "object-contain bg-[#0a0a0a] p-6" : ""
+                    article.id === "3" ? "object-contain bg-white p-6" : ""
                   }`}
                 />
                 <div className="p-8 flex-1 flex flex-col justify-between">

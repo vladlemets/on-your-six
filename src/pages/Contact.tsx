@@ -109,7 +109,7 @@ export const ContactPage: React.FC = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-4 p-4 rounded-xl border border-gray-200 bg-gray-50 hover:border-[#ff5e00] transition-colors"
             >
-              <img src={VFF.logoUrl} alt={VFF.name} className="h-14 w-auto object-contain" />
+              <img src={VFF.logoUrlLight} alt={VFF.name} className="h-14 w-auto object-contain" />
               <div>
                 <p className="text-xs uppercase tracking-wider text-gray-500">Parent organization</p>
                 <p className="font-bold text-gray-900">{VFF.name}</p>

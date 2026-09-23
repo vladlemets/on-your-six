@@ -120,7 +120,7 @@ export const ProgramsPage: React.FC = () => {
 
             <div className="bg-gray-50 p-8 rounded-xl border border-gray-200 text-center shadow-md space-y-4">
               <img
-                src={VFF.logoUrl}
+                src={VFF.logoUrlLight}
                 alt={VFF.name}
                 className="h-14 w-auto object-contain mx-auto"
               />

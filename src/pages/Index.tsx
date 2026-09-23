@@ -30,7 +30,7 @@ export const IndexPage: React.FC = () => {
   const partners = [
     {
       name: VFF.name,
-      logo: VFF.logoUrl,
+      logo: VFF.logoUrlLight,
       link: VFF.url,
     },
     {
@@ -454,9 +454,9 @@ export const IndexPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-xl overflow-hidden shadow-sm border border-gray-100 flex flex-col">
               <img
-                src={VFF.logoUrl}
+                src={VFF.logoUrlLight}
                 alt={VFF.name}
-                className="w-full h-52 object-contain bg-[#0a0a0a] p-8"
+                className="w-full h-52 object-contain bg-white p-8"
               />
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
