@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
         <div className="md:col-span-2 lg:col-span-4 space-y-4">
           <div className="flex items-center gap-4">
             <Oy6Logo size="md" />
-            <div className="w-px h-10 sm:h-12 bg-white/50 shrink-0" aria-hidden />
+            <div className="w-px h-12 sm:h-14 bg-white/50 shrink-0" aria-hidden />
             <a
               href={VFF.url}
               target="_blank"
@@ -57,7 +57,7 @@ export const Footer: React.FC = () => {
               <img
                 src={VFF.logoUrl}
                 alt={VFF.name}
-                className="h-10 sm:h-12 w-auto object-contain"
+                className="h-12 sm:h-14 w-auto object-contain"
               />
             </a>
           </div>
