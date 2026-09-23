@@ -314,45 +314,47 @@ export const IndexPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="lg:col-span-7 space-y-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.15rem] font-extrabold text-gray-900 leading-tight">
               Driving Real Change for The Hero Community
             </h2>
-            <p className="text-gray-600 italic leading-relaxed mb-8">
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-xl">
               On Your Six connects veterans with housing, wellness support, and a path forward —
               as a permanent program of {VFF.name}.
             </p>
 
-            <div className="grid grid-cols-3 gap-6 text-center border-t border-gray-100 pt-8">
+            <div className="grid grid-cols-3 gap-4 sm:gap-6 border-t border-gray-200 pt-6 max-w-xl">
               <div>
-                <span className="block text-3xl sm:text-5xl font-extrabold text-[#ff5e00]">90+</span>
-                <span className="text-xs sm:text-sm font-semibold text-gray-600 mt-2 block">
+                <span className="block text-2xl sm:text-4xl font-extrabold text-[#ff5e00]">90+</span>
+                <span className="text-[11px] sm:text-xs font-semibold text-gray-600 mt-1.5 block leading-snug">
                   Previously Homeless Veterans Housed
                 </span>
               </div>
               <div>
-                <span className="block text-3xl sm:text-5xl font-extrabold text-[#ff5e00]">55+</span>
-                <span className="text-xs sm:text-sm font-semibold text-gray-600 mt-2 block">
+                <span className="block text-2xl sm:text-4xl font-extrabold text-[#ff5e00]">55+</span>
+                <span className="text-[11px] sm:text-xs font-semibold text-gray-600 mt-1.5 block leading-snug">
                   Volunteers Added in 2024
                 </span>
               </div>
               <div>
-                <span className="block text-3xl sm:text-5xl font-extrabold text-[#ff5e00]">500+</span>
-                <span className="text-xs sm:text-sm font-semibold text-gray-600 mt-2 block">
+                <span className="block text-2xl sm:text-4xl font-extrabold text-[#ff5e00]">500+</span>
+                <span className="text-[11px] sm:text-xs font-semibold text-gray-600 mt-1.5 block leading-snug">
                   Donations Collected in 2024
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-            <img
-              src="https://vibe.filesafe.space/1786084625277767261/assets/692e057f-0ebf-4c50-ac04-814e3556c283.jpg"
-              alt="Patriotic family celebration"
-              className="w-full h-auto object-cover"
-            />
+          <div className="lg:col-span-5">
+            <div className="relative rounded-xl overflow-hidden shadow-lg max-w-md lg:max-w-none mx-auto aspect-[4/3] lg:aspect-[5/4]">
+              <img
+                src="https://vibe.filesafe.space/1786084625277767261/assets/692e057f-0ebf-4c50-ac04-814e3556c283.jpg"
+                alt="Patriotic family celebration"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+              />
+            </div>
           </div>
         </div>
       </section>
