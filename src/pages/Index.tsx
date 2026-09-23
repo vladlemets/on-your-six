@@ -11,7 +11,7 @@ export const IndexPage: React.FC = () => {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const words = ["stability", "support", "community"];
+  const words = ["STABILITY", "SUPPORT", "COMMUNITY"];
   const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
@@ -74,12 +74,12 @@ export const IndexPage: React.FC = () => {
         ))}
         <div className="absolute inset-0 bg-black/60" />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center">
           <a
             href={VFF.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-4 sm:gap-5 mb-8 mx-auto bg-black/45 border border-white/25 rounded-full px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-xl text-gray-200 hover:border-[#ff5e00] hover:text-white transition-colors shadow-lg"
+            className="inline-flex items-center gap-4 sm:gap-5 mb-8 bg-black/45 border border-white/25 rounded-full px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-xl text-gray-200 hover:border-[#ff5e00] hover:text-white transition-colors shadow-lg"
           >
             <img src={VFF.logoUrl} alt="" className="h-12 sm:h-16 w-auto object-contain" />
             <span className="text-left leading-snug">
@@ -89,22 +89,26 @@ export const IndexPage: React.FC = () => {
             <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6 text-[#ff5e00] shrink-0" />
           </a>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
-            Building{" "}
-            <span className="relative inline-grid text-center align-baseline text-[#ff5e00] underline decoration-[#ff5e00]">
-              {words.map((word, i) => (
-                <span
-                  key={word}
-                  className={`col-start-1 row-start-1 px-0.5 ${
-                    i === wordIndex ? "visible" : "invisible"
-                  }`}
-                  aria-hidden={i !== wordIndex}
-                >
-                  {word}
-                </span>
-              ))}
+          <h1 className="text-center">
+            <span className="block text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-none uppercase">
+              Building{" "}
+              <span className="relative inline-grid text-left align-baseline text-[#ff5e00] underline decoration-[#ff5e00] underline-offset-4">
+                {words.map((word, i) => (
+                  <span
+                    key={word}
+                    className={`col-start-1 row-start-1 ${
+                      i === wordIndex ? "visible" : "invisible"
+                    }`}
+                    aria-hidden={i !== wordIndex}
+                  >
+                    {word}
+                  </span>
+                ))}
+              </span>
             </span>
-            . Empowering Veterans and First Responders
+            <span className="mt-3 sm:mt-4 block text-sm sm:text-base lg:text-lg font-bold text-white/90 tracking-[0.12em] uppercase whitespace-nowrap">
+              Empowering Veterans and First Responders
+            </span>
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto">
             On Your Six began as an incubator for SafeHaven housing pathways. That work is now a
