@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Home, Handshake, Landmark, ChevronRight, ExternalLink } from "lucide-react";
-import { OY6, VFF } from "@/lib/site";
+import { VFF } from "@/lib/site";
 
 export const IndexPage: React.FC = () => {
   const slides = [
@@ -17,10 +17,10 @@ export const IndexPage: React.FC = () => {
   useEffect(() => {
     const slideInterval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 7000);
     const wordInterval = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % words.length);
-    }, 2500);
+    }, 3200);
     return () => {
       clearInterval(slideInterval);
       clearInterval(wordInterval);
@@ -66,11 +66,14 @@ export const IndexPage: React.FC = () => {
         {slides.map((slide, index) => (
           <div
             key={slide}
-            className={`absolute inset-0 transition-opacity duration-1000 bg-cover bg-center ${
-              index === currentSlide ? "opacity-100 scale-105" : "opacity-0 scale-100"
-            }`}
-            style={{ backgroundImage: `url('${slide}')` }}
-          />
+            className={`hero-slide absolute inset-0 ${index === currentSlide ? "is-active" : ""}`}
+            aria-hidden={index !== currentSlide}
+          >
+            <div
+              className="hero-slide-img absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url('${slide}')` }}
+            />
+          </div>
         ))}
         <div className="absolute inset-0 bg-black/60" />
 
@@ -96,8 +99,8 @@ export const IndexPage: React.FC = () => {
                 {words.map((word, i) => (
                   <span
                     key={word}
-                    className={`col-start-1 row-start-1 ${
-                      i === wordIndex ? "visible" : "invisible"
+                    className={`hero-word col-start-1 row-start-1 ${
+                      i === wordIndex ? "is-active" : ""
                     }`}
                     aria-hidden={i !== wordIndex}
                   >
@@ -110,14 +113,14 @@ export const IndexPage: React.FC = () => {
               Empowering Veterans and First Responders
             </span>
           </h1>
-          <p className="mt-6 text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto">
-            On Your Six began as an incubator for SafeHaven housing pathways. That work is now a
-            permanent program of {VFF.name} — still on the ground for our heroes.
+          <p className="mt-6 text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
+            Housing pathways and SafeHaven support for those who served — now a permanent program of{" "}
+            {VFF.name}.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
             <Link
               to="/contact"
-              className="bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm sm:text-base px-8 py-4 rounded uppercase tracking-wider transition-all transform hover:-translate-y-0.5 shadow-lg"
+              className="bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm sm:text-base px-8 py-4 rounded uppercase tracking-wider transition-colors shadow-lg"
             >
               Request Information
             </Link>
@@ -125,7 +128,7 @@ export const IndexPage: React.FC = () => {
               href={VFF.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/10 hover:bg-white/20 border border-white/40 text-white font-bold text-sm sm:text-base px-8 py-4 rounded uppercase tracking-wider transition-all"
+              className="bg-white/10 hover:bg-white/20 border border-white/40 text-white font-bold text-sm sm:text-base px-8 py-4 rounded uppercase tracking-wider transition-colors"
             >
               Visit vetfirst.org
             </a>
@@ -133,21 +136,26 @@ export const IndexPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Congrats / transition band */}
+      {/* Status band — clear, forward-looking */}
       <section className="bg-[#2d3136] text-white py-10 px-4 border-b border-[#ff5e00]/40">
-        <div className="max-w-4xl mx-auto text-center space-y-3">
+        <div className="max-w-3xl mx-auto text-center space-y-3">
           <p className="text-[#ff5e00] text-xs font-bold uppercase tracking-[0.2em]">
-            Congratulations — job well done
+            Proven model · Permanent home
           </p>
           <h2 className="text-xl sm:text-2xl font-extrabold">
-            From incubator to permanent program
+            On Your Six &amp; SafeHaven under {VFF.shortName}
           </h2>
           <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-            {OY6.legacyNote} Alongside SafeHaven, On Your Six continues under{" "}
-            <a href={VFF.url} className="text-[#ff5e00] font-semibold underline" target="_blank" rel="noopener noreferrer">
+            Built as an incubator. Carried forward as standing programs of{" "}
+            <a
+              href={VFF.url}
+              className="text-[#ff5e00] font-semibold underline underline-offset-2 hover:text-[#ff7a33]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {VFF.name}
             </a>
-            . This site is the program home and a chronicle of that success.
+            — same mission, stronger backing.
           </p>
         </div>
       </section>
@@ -313,9 +321,8 @@ export const IndexPage: React.FC = () => {
               Driving Real Change for The Hero Community
             </h2>
             <p className="text-gray-600 italic leading-relaxed mb-8">
-              Through On Your Six — now a permanent program of {VFF.name} — we connect veterans with
-              housing solutions, mental health support, and pathways to purpose. The incubator chapter
-              is complete; the mission continues.
+              On Your Six connects veterans with housing, wellness support, and a path forward —
+              as a permanent program of {VFF.name}.
             </p>
 
             <div className="grid grid-cols-3 gap-6 text-center border-t border-gray-100 pt-8">

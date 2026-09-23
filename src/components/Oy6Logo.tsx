@@ -18,7 +18,7 @@ const HEIGHT: Record<NonNullable<Oy6LogoProps["size"]>, string> = {
  * SIX spans the exact same width as ON YOUR (PNG).
  */
 export function Oy6Logo({ className, variant = "light", size = "md" }: Oy6LogoProps) {
-  const src = variant === "dark" ? "/oy6-logo-dark.png?v=4" : "/oy6-logo.png?v=4";
+  const src = variant === "dark" ? "/oy6-logo-dark.png?v=5" : "/oy6-logo.png?v=5";
 
   return (
     <img
