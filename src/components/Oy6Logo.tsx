@@ -2,55 +2,32 @@ import { cn } from "@/lib/utils";
 
 type Oy6LogoProps = {
   className?: string;
-  /** light = white "ON YOUR" on dark headers; dark = charcoal on light bg */
+  /** light = white ON YOUR (dark backgrounds); dark = charcoal ON YOUR */
   variant?: "light" | "dark";
   size?: "sm" | "md" | "lg";
 };
 
+const HEIGHT: Record<NonNullable<Oy6LogoProps["size"]>, string> = {
+  sm: "h-9",
+  md: "h-11 sm:h-12",
+  lg: "h-16 sm:h-20",
+};
+
 /**
- * Stacked wordmark: ON YOUR / SIX
- * SIX letters are spaced to match the full width of ON YOUR.
+ * Symmetrical stacked wordmark image: ON YOUR / SIX
+ * SIX spans the exact same width as ON YOUR (PNG).
  */
 export function Oy6Logo({ className, variant = "light", size = "md" }: Oy6LogoProps) {
-  const top =
-    size === "sm"
-      ? "text-[10px] tracking-[0.22em] pr-[0.22em]"
-      : size === "lg"
-        ? "text-sm sm:text-base tracking-[0.28em] pr-[0.28em]"
-        : "text-[11px] sm:text-xs tracking-[0.26em] pr-[0.26em]";
-
-  const six =
-    size === "sm"
-      ? "text-[1.45rem]"
-      : size === "lg"
-        ? "text-[2.6rem] sm:text-[3.1rem]"
-        : "text-[1.75rem] sm:text-[2.05rem]";
+  const src = variant === "dark" ? "/oy6-logo-dark.png?v=2" : "/oy6-logo.png?v=2";
 
   return (
-    <div
-      className={cn("inline-flex flex-col leading-none select-none", className)}
-      aria-label="On Your Six"
-    >
-      <span
-        className={cn(
-          "font-bold uppercase whitespace-nowrap",
-          top,
-          variant === "light" ? "text-white" : "text-[#2d3136]",
-        )}
-      >
-        ON YOUR
-      </span>
-      <span
-        className={cn(
-          "flex w-full justify-between font-black uppercase text-[#ff5e00] leading-[0.85] mt-0.5",
-          six,
-        )}
-        aria-hidden="true"
-      >
-        <span>S</span>
-        <span>I</span>
-        <span>X</span>
-      </span>
-    </div>
+    <img
+      src={src}
+      alt="On Your Six"
+      className={cn("w-auto object-contain object-left", HEIGHT[size], className)}
+      width={200}
+      height={75}
+      decoding="async"
+    />
   );
 }

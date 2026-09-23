@@ -79,19 +79,30 @@ export const IndexPage: React.FC = () => {
             href={VFF.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mb-6 mx-auto bg-black/40 border border-white/20 rounded-full px-4 py-2 text-xs sm:text-sm text-gray-200 hover:border-[#ff5e00] hover:text-white transition-colors"
+            className="inline-flex items-center gap-4 sm:gap-5 mb-8 mx-auto bg-black/45 border border-white/25 rounded-full px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-xl text-gray-200 hover:border-[#ff5e00] hover:text-white transition-colors shadow-lg"
           >
-            <img src={VFF.logoUrl} alt="" className="h-6 w-auto object-contain" />
-            <span>
-              A permanent program of <strong className="text-white">{VFF.name}</strong>
+            <img src={VFF.logoUrl} alt="" className="h-12 sm:h-16 w-auto object-contain" />
+            <span className="text-left leading-snug">
+              A permanent program of{" "}
+              <strong className="text-white whitespace-nowrap">{VFF.name}</strong>
             </span>
-            <ExternalLink className="w-3.5 h-3.5 text-[#ff5e00]" />
+            <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6 text-[#ff5e00] shrink-0" />
           </a>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
             Building{" "}
-            <span className="text-[#ff5e00] underline decoration-[#ff5e00] inline-block min-w-[180px]">
-              {words[wordIndex]}
+            <span className="relative inline-grid text-center align-baseline text-[#ff5e00] underline decoration-[#ff5e00]">
+              {words.map((word, i) => (
+                <span
+                  key={word}
+                  className={`col-start-1 row-start-1 px-0.5 ${
+                    i === wordIndex ? "visible" : "invisible"
+                  }`}
+                  aria-hidden={i !== wordIndex}
+                >
+                  {word}
+                </span>
+              ))}
             </span>
             . Empowering Veterans and First Responders
           </h1>

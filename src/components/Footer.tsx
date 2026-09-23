@@ -7,7 +7,6 @@ import { OY6, VFF } from "@/lib/site";
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#2d3136] text-white">
-      {/* Mission complete band — replaces retired newsletter */}
       <div className="bg-[#ff5e00] py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-start sm:items-center space-x-4 text-left">
@@ -43,28 +42,30 @@ export const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        <div className="space-y-4">
-          <Oy6Logo size="md" />
-          <p className="text-gray-300 text-sm leading-relaxed">{OY6.tagline}.</p>
-          <a
-            href={VFF.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 pt-2 group"
-          >
-            <img
-              src={VFF.logoUrl}
-              alt={VFF.name}
-              className="h-12 w-auto object-contain"
-            />
-            <span className="text-xs text-gray-400 group-hover:text-[#ff5e00] transition-colors">
-              Part of {VFF.name}
-            </span>
-          </a>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+        {/* Brand: logos side-by-side + paragraph */}
+        <div className="md:col-span-2 lg:col-span-4 space-y-4">
+          <div className="flex items-center gap-4">
+            <Oy6Logo size="md" />
+            <div className="w-px h-10 sm:h-12 bg-white/50 shrink-0" aria-hidden />
+            <a
+              href={VFF.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 hover:opacity-90 transition-opacity"
+            >
+              <img
+                src={VFF.logoUrl}
+                alt={VFF.name}
+                className="h-10 sm:h-12 w-auto object-contain"
+              />
+            </a>
+          </div>
+          <p className="text-gray-300 text-sm leading-relaxed max-w-sm">{OY6.tagline}.</p>
         </div>
 
-        <div>
+        {/* Quick Links + VFF nudged right for balance */}
+        <div className="lg:col-span-2 lg:col-start-6">
           <h4 className="text-lg font-bold text-white mb-4 uppercase tracking-wider">Quick Links</h4>
           <ul className="space-y-2.5 text-sm">
             <li>
@@ -95,7 +96,7 @@ export const Footer: React.FC = () => {
           </ul>
         </div>
 
-        <div>
+        <div className="lg:col-span-2">
           <h4 className="text-lg font-bold text-white mb-4 uppercase tracking-wider">
             {VFF.shortName}
           </h4>
@@ -153,7 +154,7 @@ export const Footer: React.FC = () => {
           </ul>
         </div>
 
-        <div>
+        <div className="lg:col-span-3">
           <h4 className="text-lg font-bold text-white mb-4 uppercase tracking-wider">Contact</h4>
           <ul className="space-y-3.5 text-sm text-gray-300">
             <li className="flex items-start space-x-3">
@@ -161,9 +162,7 @@ export const Footer: React.FC = () => {
               <span>
                 Program footprint: Homestead, FL
                 <br />
-                <span className="text-gray-400 text-xs">
-                  Operated by {VFF.name}
-                </span>
+                <span className="text-gray-400 text-xs">Operated by {VFF.name}</span>
               </span>
             </li>
             <li className="flex items-center space-x-3">
@@ -185,7 +184,12 @@ export const Footer: React.FC = () => {
       <div className="border-t border-gray-700/60 py-6 px-4 sm:px-6 lg:px-8 text-center text-xs text-gray-400 space-y-1">
         <p>
           © {new Date().getFullYear()} {OY6.name} — a program of{" "}
-          <a href={VFF.url} className="text-gray-300 hover:text-[#ff5e00] underline" target="_blank" rel="noopener noreferrer">
+          <a
+            href={VFF.url}
+            className="text-gray-300 hover:text-[#ff5e00] underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {VFF.name}
           </a>
           . All rights reserved.
