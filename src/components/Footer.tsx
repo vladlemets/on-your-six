@@ -42,9 +42,9 @@ export const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
-        {/* Brand: logos side-by-side + paragraph */}
-        <div className="md:col-span-2 lg:col-span-4 space-y-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+        {/* Brand */}
+        <div className="space-y-4 max-w-2xl">
           <div className="flex items-center gap-4">
             <Oy6Logo size="md" />
             <div className="w-px h-12 sm:h-14 bg-white/50 shrink-0" aria-hidden />
@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
               />
             </a>
           </div>
-          <p className="text-gray-300 text-sm leading-relaxed max-w-md">
+          <p className="text-gray-300 text-sm leading-relaxed">
             On Your Six began as an incubator for SafeHaven housing pathways and wrap-around support
             for veterans and first responders. That work proved the model — and today On Your Six and
             SafeHaven continue as permanent programs of{" "}
@@ -78,100 +78,103 @@ export const Footer: React.FC = () => {
           </p>
         </div>
 
-        {/* Quick Links + VFF nudged right for balance */}
-        <div className="lg:col-span-2 lg:col-start-6">
-          <h4 className="text-lg font-bold text-white mb-4 uppercase tracking-wider">Quick Links</h4>
-          <ul className="space-y-2.5 text-sm">
-            <li>
-              <Link to="/" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="/programs" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
-                Programs
-              </Link>
-            </li>
-            <li>
-              <Link to="/news" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
-                Chronicles of Success
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link to="/volunteer" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
-                Volunteer
-              </Link>
-            </li>
-          </ul>
+        {/* Quick Links | VFF — side by side */}
+        <div className="grid grid-cols-2 gap-8 sm:gap-12 max-w-xl">
+          <div>
+            <h4 className="text-lg font-bold text-white mb-4 uppercase tracking-wider">Quick Links</h4>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link to="/" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/programs" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
+                  Programs
+                </Link>
+              </li>
+              <li>
+                <Link to="/news" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
+                  Chronicles of Success
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link to="/volunteer" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
+                  Volunteer
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-bold text-white mb-4 uppercase tracking-wider">
+              {VFF.shortName}
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <a
+                  href={VFF.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-[#ff5e00] transition-colors inline-flex items-center gap-1"
+                >
+                  vetfirst.org <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={VFF.programsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-[#ff5e00] transition-colors"
+                >
+                  All VFF Programs
+                </a>
+              </li>
+              <li>
+                <a
+                  href={VFF.donateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-[#ff5e00] transition-colors"
+                >
+                  Donate
+                </a>
+              </li>
+              <li>
+                <a
+                  href={VFF.volunteerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-[#ff5e00] transition-colors"
+                >
+                  Volunteer with VFF
+                </a>
+              </li>
+              <li>
+                <Link to="/privacy-policy" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
+                  Privacy
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
+                  FAQ
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="lg:col-span-2">
-          <h4 className="text-lg font-bold text-white mb-4 uppercase tracking-wider">
-            {VFF.shortName}
-          </h4>
-          <ul className="space-y-2.5 text-sm">
-            <li>
-              <a
-                href={VFF.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#ff5e00] transition-colors inline-flex items-center gap-1"
-              >
-                vetfirst.org <ExternalLink className="w-3 h-3" />
-              </a>
-            </li>
-            <li>
-              <a
-                href={VFF.programsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#ff5e00] transition-colors"
-              >
-                All VFF Programs
-              </a>
-            </li>
-            <li>
-              <a
-                href={VFF.donateUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#ff5e00] transition-colors"
-              >
-                Donate
-              </a>
-            </li>
-            <li>
-              <a
-                href={VFF.volunteerUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-[#ff5e00] transition-colors"
-              >
-                Volunteer with VFF
-              </a>
-            </li>
-            <li>
-              <Link to="/privacy-policy" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
-                Privacy
-              </Link>
-            </li>
-            <li>
-              <Link to="/faq" className="text-gray-300 hover:text-[#ff5e00] transition-colors">
-                FAQ
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        <div className="lg:col-span-3">
+        {/* Contact — centered */}
+        <div className="text-center mx-auto max-w-md">
           <h4 className="text-lg font-bold text-white mb-4 uppercase tracking-wider">Contact</h4>
-          <ul className="space-y-3.5 text-sm text-gray-300">
-            <li className="flex items-start space-x-3">
+          <ul className="space-y-3.5 text-sm text-gray-300 inline-flex flex-col items-center">
+            <li className="flex items-start justify-center space-x-3 text-left">
               <MapPin className="w-5 h-5 text-[#ff5e00] shrink-0 mt-0.5" />
               <span>
                 Program footprint: Homestead, FL
