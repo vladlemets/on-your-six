@@ -11,7 +11,7 @@ export const IndexPage: React.FC = () => {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const words = ["STABILITY", "SUPPORT", "COMMUNITY"];
+  const words = ["STABILITY", "SUPPORT", "PURPOSE"];
   const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {

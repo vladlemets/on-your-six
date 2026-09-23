@@ -26,28 +26,13 @@ export const Header: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#2d3136]/95 backdrop-blur-md shadow-md py-2.5" : "bg-[#2d3136] py-3.5"
+        isScrolled ? "bg-[#2d3136]/95 backdrop-blur-md shadow-md py-2" : "bg-[#2d3136] py-2.5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-4 sm:gap-6 min-w-0">
-          <Link to="/" className="shrink-0" aria-label="On Your Six home">
-            <Oy6Logo size="md" />
-          </Link>
-          <a
-            href={VFF.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:flex items-center gap-2 border-l border-white/20 pl-4 hover:opacity-90 transition-opacity"
-            title={`${VFF.name} — parent organization`}
-          >
-            <img
-              src={VFF.logoUrl}
-              alt={VFF.name}
-              className="h-9 w-auto object-contain"
-            />
-          </a>
-        </div>
+        <Link to="/" className="shrink-0" aria-label="On Your Six home">
+          <Oy6Logo size="md" />
+        </Link>
 
         <nav className="hidden lg:flex items-center space-x-7">
           {navItems.map((item) => {
@@ -93,18 +78,6 @@ export const Header: React.FC = () => {
 
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#2d3136] border-t border-gray-700 px-4 pt-4 pb-6 space-y-3">
-          <a
-            href={VFF.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 pb-3 border-b border-white/10"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <img src={VFF.logoUrl} alt={VFF.name} className="h-10 w-auto object-contain" />
-            <span className="text-xs text-gray-300">
-              A permanent program of <span className="text-white font-semibold">{VFF.name}</span>
-            </span>
-          </a>
           {navItems.map((item) => {
             const isActive =
               item.path === "/"
@@ -130,7 +103,7 @@ export const Header: React.FC = () => {
               rel="noopener noreferrer"
               className="block text-center bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm tracking-wider py-3 rounded uppercase transition-colors duration-200"
             >
-              Donate via {VFF.shortName}
+              Donate
             </a>
           </div>
         </div>
