@@ -117,10 +117,10 @@ export const IndexPage: React.FC = () => {
             Housing pathways and SafeHaven support for those who served — now a permanent program of{" "}
             {VFF.name}.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3 w-full max-w-md sm:max-w-none">
+          <div className="cta-row mt-8 flex flex-col sm:flex-row justify-center gap-3 w-full max-w-md sm:max-w-none mx-auto">
             <Link
               to="/contact"
-              className="w-full sm:w-auto bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm sm:text-base px-8 py-4 rounded uppercase tracking-wider transition-colors shadow-lg text-center"
+              className="cta-btn w-full sm:w-auto bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm sm:text-base px-8 py-4 rounded uppercase tracking-wider transition-colors shadow-lg text-center"
             >
               Request Information
             </Link>
@@ -128,7 +128,7 @@ export const IndexPage: React.FC = () => {
               href={VFF.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/40 text-white font-bold text-sm sm:text-base px-8 py-4 rounded uppercase tracking-wider transition-colors text-center"
+              className="cta-btn w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/40 text-white font-bold text-sm sm:text-base px-8 py-4 rounded uppercase tracking-wider transition-colors text-center"
             >
               Visit vetfirst.org
             </a>
@@ -280,10 +280,10 @@ export const IndexPage: React.FC = () => {
               )}
             </ul>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="cta-row flex flex-col sm:flex-row flex-wrap gap-3 w-full">
               <Link
                 to="/programs"
-                className="inline-block bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm px-8 py-3 rounded uppercase tracking-wider transition-colors"
+                className="cta-btn inline-flex items-center justify-center w-full sm:w-auto bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm px-8 py-3 rounded uppercase tracking-wider transition-colors"
               >
                 Learn More
               </Link>
@@ -291,7 +291,7 @@ export const IndexPage: React.FC = () => {
                 href={VFF.programsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block border border-white/40 hover:border-[#ff5e00] text-white font-bold text-sm px-8 py-3 rounded uppercase tracking-wider transition-colors"
+                className="cta-btn inline-flex items-center justify-center w-full sm:w-auto border border-white/40 hover:border-[#ff5e00] text-white font-bold text-sm px-8 py-3 rounded uppercase tracking-wider transition-colors"
               >
                 All VFF Programs
               </a>
@@ -424,10 +424,10 @@ export const IndexPage: React.FC = () => {
               Volunteer with On Your Six through {VFF.name}. Your time creates pathways to stability,
               wellness, and renewed purpose.
             </p>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="cta-row flex flex-col sm:flex-row flex-wrap justify-center gap-3 w-full max-w-md sm:max-w-none mx-auto">
               <Link
                 to="/volunteer"
-                className="inline-block bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm px-8 py-3 rounded uppercase tracking-wider transition-colors shadow-md"
+                className="cta-btn inline-flex items-center justify-center w-full sm:w-auto bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm px-8 py-3 rounded uppercase tracking-wider transition-colors shadow-md"
               >
                 Volunteer with us
               </Link>
@@ -435,7 +435,7 @@ export const IndexPage: React.FC = () => {
                 href={VFF.volunteerUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block border-2 border-[#2d3136] text-[#2d3136] hover:border-[#ff5e00] hover:text-[#ff5e00] font-bold text-sm px-8 py-3 rounded uppercase tracking-wider transition-colors"
+                className="cta-btn inline-flex items-center justify-center w-full sm:w-auto border-2 border-[#2d3136] text-[#2d3136] hover:border-[#ff5e00] hover:text-[#ff5e00] font-bold text-sm px-8 py-3 rounded uppercase tracking-wider transition-colors"
               >
                 VFF Volunteer Hub
               </a>

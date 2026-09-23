@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
             href={VFF.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white text-[#ff5e00] hover:bg-gray-100 font-bold px-8 py-3 rounded text-sm tracking-wider uppercase transition-colors inline-flex items-center gap-2 shrink-0"
+            className="cta-btn w-full md:w-auto bg-white text-[#ff5e00] hover:bg-gray-100 font-bold px-8 py-3 rounded text-sm tracking-wider uppercase transition-colors inline-flex items-center justify-center gap-2 shrink-0"
           >
             Visit {VFF.shortName}
             <ExternalLink className="w-4 h-4" />
@@ -44,10 +44,11 @@ export const Footer: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
         {/* Brand */}
-        <div className="space-y-4 max-w-2xl">
-          <div className="flex items-center gap-4">
-            <Oy6Logo size="md" />
-            <div className="w-px h-12 sm:h-14 bg-white/50 shrink-0" aria-hidden />
+        <div className="space-y-4 max-w-2xl mx-auto sm:mx-0">
+          <div className="flex items-center justify-center sm:justify-start gap-4 sm:gap-4">
+            {/* Mobile logos +33% (h-12→h-16); desktop unchanged */}
+            <Oy6Logo size="md" className="!h-16 sm:!h-14 object-center sm:object-left" />
+            <div className="w-px h-16 sm:h-14 bg-white/50 shrink-0" aria-hidden />
             <a
               href={VFF.url}
               target="_blank"
@@ -57,11 +58,11 @@ export const Footer: React.FC = () => {
               <img
                 src={VFF.logoUrl}
                 alt={VFF.name}
-                className="h-12 sm:h-14 w-auto object-contain"
+                className="h-16 sm:h-14 w-auto object-contain"
               />
             </a>
           </div>
-          <p className="text-gray-300 text-sm leading-relaxed">
+          <p className="text-gray-300 text-sm leading-relaxed text-center sm:text-left">
             On Your Six began as an incubator for SafeHaven housing pathways and wrap-around support
             for veterans and first responders. That work proved the model — and today On Your Six and
             SafeHaven continue as permanent programs of{" "}

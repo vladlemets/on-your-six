@@ -101,7 +101,7 @@ export const Header: React.FC = () => {
               href={VFF.donateUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="block text-center bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm tracking-wider py-3 rounded uppercase transition-colors duration-200"
+              className="cta-btn block w-full text-center bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm tracking-wider py-3 rounded uppercase transition-colors duration-200"
             >
               Donate
             </a>
