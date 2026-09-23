@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { Oy6Logo } from "./Oy6Logo";
+import { VFF } from "@/lib/site";
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -8,55 +10,57 @@ export const Header: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { label: "NEWS", path: "/news" },
+    { label: "CHRONICLES", path: "/news" },
     { label: "ABOUT", path: "/" },
     { label: "PROGRAMS", path: "/programs" },
     { label: "VOLUNTEER", path: "/volunteer" },
     { label: "CONTACT", path: "/contact" },
   ];
 
-  const logoUrl = "https://vibe.filesafe.space/1786084625277767261/assets/f786f623-7755-4b5e-bdfa-1b444d88a939.png";
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#2d3136]/95 backdrop-blur-md shadow-md py-3" : "bg-[#2d3136] py-4"
+        isScrolled ? "bg-[#2d3136]/95 backdrop-blur-md shadow-md py-2.5" : "bg-[#2d3136] py-3.5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <img
-            src={logoUrl}
-            alt="On Your Six Foundation"
-            className="h-10 sm:h-12 w-auto object-contain"
-          />
-        </Link>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-4 sm:gap-6 min-w-0">
+          <Link to="/" className="shrink-0" aria-label="On Your Six home">
+            <Oy6Logo size="md" />
+          </Link>
+          <a
+            href={VFF.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:flex items-center gap-2 border-l border-white/20 pl-4 hover:opacity-90 transition-opacity"
+            title={`${VFF.name} — parent organization`}
+          >
+            <img
+              src={VFF.logoUrl}
+              alt={VFF.name}
+              className="h-9 w-auto object-contain"
+            />
+          </a>
+        </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden lg:flex items-center space-x-7">
           {navItems.map((item) => {
-            const isActive = location.pathname === item.path;
+            const isActive =
+              item.path === "/"
+                ? location.pathname === "/"
+                : location.pathname.startsWith(item.path);
             return (
               <Link
                 key={item.label}
                 to={item.path}
                 className={`text-sm font-semibold tracking-wider transition-colors duration-200 ${
-                  isActive
-                    ? "text-[#ff5e00]"
-                    : "text-white hover:text-[#ff5e00]"
+                  isActive ? "text-[#ff5e00]" : "text-white hover:text-[#ff5e00]"
                 }`}
               >
                 {item.label}
@@ -65,20 +69,18 @@ export const Header: React.FC = () => {
           })}
         </nav>
 
-        {/* Donate Button */}
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-3">
           <a
-            href="https://www.veteransfirstfoundation.net/donate/"
+            href={VFF.donateUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm tracking-wider px-6 py-2.5 rounded uppercase transition-colors duration-200 inline-block shadow-sm"
+            className="bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm tracking-wider px-5 py-2.5 rounded uppercase transition-colors duration-200 inline-block shadow-sm"
           >
             Donate
           </a>
         </div>
 
-        {/* Mobile menu button */}
-        <div className="md:hidden flex items-center">
+        <div className="lg:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="text-white hover:text-[#ff5e00] focus:outline-none p-2"
@@ -89,11 +91,25 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#2d3136] border-t border-gray-700 px-4 pt-4 pb-6 space-y-3">
+        <div className="lg:hidden bg-[#2d3136] border-t border-gray-700 px-4 pt-4 pb-6 space-y-3">
+          <a
+            href={VFF.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 pb-3 border-b border-white/10"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <img src={VFF.logoUrl} alt={VFF.name} className="h-10 w-auto object-contain" />
+            <span className="text-xs text-gray-300">
+              A permanent program of <span className="text-white font-semibold">{VFF.name}</span>
+            </span>
+          </a>
           {navItems.map((item) => {
-            const isActive = location.pathname === item.path;
+            const isActive =
+              item.path === "/"
+                ? location.pathname === "/"
+                : location.pathname.startsWith(item.path);
             return (
               <Link
                 key={item.label}
@@ -109,12 +125,12 @@ export const Header: React.FC = () => {
           })}
           <div className="pt-2">
             <a
-              href="https://www.veteransfirstfoundation.net/donate/"
+              href={VFF.donateUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="block text-center bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm tracking-wider py-3 rounded uppercase transition-colors duration-200"
             >
-              Donate
+              Donate via {VFF.shortName}
             </a>
           </div>
         </div>

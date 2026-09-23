@@ -87,7 +87,17 @@ export const VolunteerPage: React.FC = () => {
               Join Our Community
             </h2>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-              Your time and skills can make a real difference. By volunteering with On Your Six Foundation, you’ll be contributing to meaningful programs that empower veterans and first responders to achieve stability and purpose. <strong className="font-bold text-gray-900">Join us today and help create lasting change for those who served!</strong> Volunteering is easy:
+              Your time and skills can make a real difference. By volunteering with On Your Six — a permanent program of{" "}
+              <a href="https://vetfirst.org" target="_blank" rel="noopener noreferrer" className="text-[#ff5e00] font-semibold underline">
+                Veterans First Foundation
+              </a>
+              — you’ll support housing and SafeHaven pathways that empower veterans and first responders.{" "}
+              <strong className="font-bold text-gray-900">Join us today and help create lasting change for those who served!</strong>{" "}
+              You can also apply through the{" "}
+              <a href="https://vetfirst.org/volunteer" target="_blank" rel="noopener noreferrer" className="text-[#ff5e00] font-semibold underline">
+                VFF volunteer hub
+              </a>
+              . Volunteering is easy:
             </p>
 
             <div className="space-y-4 pt-2">

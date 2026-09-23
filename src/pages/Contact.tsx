@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { PageHeader } from "../components/PageHeader";
 import { MapPin, Phone, Mail, ExternalLink } from "lucide-react";
 import { postTrackingEvent } from "../lib/tracking";
+import { OY6, VFF } from "@/lib/site";
 
 export const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +12,6 @@ export const ContactPage: React.FC = () => {
     message: "",
     inquiryType: "I have a general inquiry",
     timeOfDay: "Best time to contact me is in the morning",
-    newsletterOptIn: false,
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -57,7 +57,6 @@ export const ContactPage: React.FC = () => {
       customFields: {
         LdFB4GH4G5RuyRga3mWH: { value: formData.inquiryType, label: "Inquiry Type" },
         qvOeAZnuKprp9dHzyTWU: { value: formData.timeOfDay, label: "Best Time to Contact" },
-        l42WpO2Fp7RdwWopzObF: { value: formData.newsletterOptIn ? "Yes" : "No", label: "Newsletter Opt In" },
       },
     });
 
@@ -71,7 +70,6 @@ export const ContactPage: React.FC = () => {
         message: "",
         inquiryType: "I have a general inquiry",
         timeOfDay: "Best time to contact me is in the morning",
-        newsletterOptIn: false,
       });
     }, 4000);
   };
@@ -85,16 +83,41 @@ export const ContactPage: React.FC = () => {
 
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Column: Contact details & embedded map */}
           <div className="space-y-8">
             <div>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">
                 We're Here to Help
               </h2>
               <p className="text-gray-600 italic text-base sm:text-lg">
-                Whether you have a question, need assistance, or want to get involved, we'd love to hear from you. Reach out to us today!
+                On Your Six is a permanent program of {VFF.name}. Reach the team below, or use the
+                full VFF contact channel at{" "}
+                <a
+                  href={VFF.contactUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#ff5e00] font-semibold underline"
+                >
+                  vetfirst.org/contact
+                </a>
+                .
               </p>
             </div>
+
+            <a
+              href={VFF.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 p-4 rounded-xl border border-gray-200 bg-gray-50 hover:border-[#ff5e00] transition-colors"
+            >
+              <img src={VFF.logoUrl} alt={VFF.name} className="h-14 w-auto object-contain" />
+              <div>
+                <p className="text-xs uppercase tracking-wider text-gray-500">Parent organization</p>
+                <p className="font-bold text-gray-900">{VFF.name}</p>
+                <p className="text-xs text-[#ff5e00] inline-flex items-center gap-1 mt-0.5">
+                  vetfirst.org <ExternalLink className="w-3 h-3" />
+                </p>
+              </div>
+            </a>
 
             <ul className="space-y-4 text-gray-700 font-medium">
               <li className="flex items-start space-x-4">
@@ -102,9 +125,11 @@ export const ContactPage: React.FC = () => {
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="block font-bold text-gray-900">Address</span>
+                  <span className="block font-bold text-gray-900">Program footprint</span>
                   <span className="text-sm text-gray-600">
-                    SW 140th Ct. MT-5 101, Homestead, FL
+                    Homestead, FL — On Your Six / SafeHaven service area
+                    <br />
+                    Operated by {VFF.name}
                   </span>
                 </div>
               </li>
@@ -115,8 +140,11 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div>
                   <span className="block font-bold text-gray-900">Phone</span>
-                  <a href="tel:+17867289113" className="text-sm text-gray-600 hover:text-[#ff5e00] transition-colors">
-                    +1 786-728-9113
+                  <a
+                    href={`tel:${VFF.phoneTel}`}
+                    className="text-sm text-gray-600 hover:text-[#ff5e00] transition-colors"
+                  >
+                    {VFF.phoneDisplay}
                   </a>
                 </div>
               </li>
@@ -127,93 +155,72 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <div>
                   <span className="block font-bold text-gray-900">Email</span>
-                  <a href="mailto:info@oy6.org" className="text-sm text-gray-600 hover:text-[#ff5e00] transition-colors">
-                    info@oy6.org
+                  <a
+                    href={`mailto:${VFF.email}`}
+                    className="text-sm text-gray-600 hover:text-[#ff5e00] transition-colors"
+                  >
+                    {VFF.email}
                   </a>
                 </div>
               </li>
             </ul>
 
-            {/* Embedded Google Map */}
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-bold text-gray-900 uppercase">Location Map</span>
-                <a
-                  href="https://maps.google.com/maps?q=SW+140th+Ct.+Homestead,+FL"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-[#ff5e00] font-bold hover:underline inline-flex items-center"
-                >
-                  <span>Open in Maps</span>
-                  <ExternalLink className="w-3.5 h-3.5 ml-1" />
-                </a>
-              </div>
-              <div className="w-full h-64 rounded-xl overflow-hidden shadow border border-gray-200">
-                <iframe
-                  title="On Your Six Foundation Map"
-                  src="https://maps.google.com/maps?q=SW%20140th%20Ct.%20Homestead,%20FL&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                  className="w-full h-full border-0"
-                  loading="lazy"
-                  allowFullScreen
-                />
-              </div>
-            </div>
+            <p className="text-xs text-gray-500">
+              Crisis support (24/7 Vet4Warriors):{" "}
+              <a href={`tel:${VFF.crisisTel}`} className="text-[#ff5e00] font-semibold underline">
+                {VFF.crisisDisplay}
+              </a>
+            </p>
           </div>
 
-          {/* Right Column: Reach Out Form */}
           <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 shadow-md">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Reach out to us</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Reach out about {OY6.name}</h3>
+            <p className="text-xs text-gray-500 mb-6">
+              Messages are handled by {VFF.name} program staff.
+            </p>
 
             {submitted ? (
               <div className="bg-green-50 border border-green-200 text-green-800 p-6 rounded-lg text-center my-8">
                 <h4 className="text-xl font-bold mb-2">Message Sent!</h4>
-                <p className="text-sm">Thank you for contacting On Your Six Foundation. We will respond shortly.</p>
+                <p className="text-sm">
+                  Thank you for contacting the On Your Six program at {VFF.name}. We will respond
+                  shortly.
+                </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff5e00] text-sm bg-white"
-                  />
-                </div>
-
-                <div>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff5e00] text-sm bg-white"
-                  />
-                </div>
-
-                <div>
-                  <input
-                    type="tel"
-                    placeholder="Phone number"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff5e00] text-sm bg-white"
-                  />
-                </div>
-
-                <div>
-                  <textarea
-                    rows={4}
-                    placeholder="Message"
-                    required
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff5e00] text-sm bg-white"
-                  />
-                </div>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff5e00] text-sm bg-white"
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff5e00] text-sm bg-white"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone number"
+                  required
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff5e00] text-sm bg-white"
+                />
+                <textarea
+                  rows={4}
+                  placeholder="Message"
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff5e00] text-sm bg-white"
+                />
 
                 <div>
                   <label className="block text-xs font-semibold text-gray-600 mb-1">
@@ -254,19 +261,6 @@ export const ContactPage: React.FC = () => {
                       Best time to contact me is in the evening
                     </option>
                   </select>
-                </div>
-
-                <div className="flex items-center space-x-2 pt-2">
-                  <input
-                    type="checkbox"
-                    id="newsletter"
-                    checked={formData.newsletterOptIn}
-                    onChange={(e) => setFormData({ ...formData, newsletterOptIn: e.target.checked })}
-                    className="h-4 w-4 text-[#ff5e00] focus:ring-[#ff5e00] border-gray-300 rounded"
-                  />
-                  <label htmlFor="newsletter" className="text-xs text-gray-600">
-                    I would like to receive updates and news from OY6 Foundation
-                  </label>
                 </div>
 
                 <button

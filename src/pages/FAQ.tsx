@@ -7,24 +7,29 @@ export const FAQPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "How can I join or support the campaign?",
+      question: "Is On Your Six still its own foundation?",
       answer:
-        "You can support On Your Six Foundation by becoming a volunteer, donating through our secure donation page, or partnering with us to expand housing and support options for veterans and first responders.",
+        "No — On Your Six began as an incubator working with SafeHaven. That work is complete and celebrated. On Your Six and SafeHaven are now permanent programs of Veterans First Foundation (vetfirst.org).",
+    },
+    {
+      question: "How can I join or support the program?",
+      answer:
+        "Volunteer or partner through this site, or via Veterans First Foundation at vetfirst.org. Donate at vetfirst.org/donate to support On Your Six, SafeHaven, and the full VFF mission.",
     },
     {
       question: "When does the SafeHaven campaign begin and finish?",
       answer:
-        "The SafeHaven Initiative is an ongoing foundation program dedicated to permanent housing stability and wrap-around support. Our services operate year-round to assist veterans transitioning out of homelessness.",
+        "SafeHaven is an ongoing, year-round permanent program under Veterans First Foundation — dedicated to housing stability and wrap-around support for veterans transitioning out of homelessness.",
     },
     {
       question: "What kind of donation methods or support are accepted?",
       answer:
-        "We accept direct online credit card and ACH donations, corporate sponsorship contributions, and equipment/property gifts through our nonprofit partner channels.",
+        "Donations are processed through Veterans First Foundation (fiscally sponsored by Capstone Legacy Foundation, EIN 20-3752969), including online gifts and partnership contributions.",
     },
     {
-      question: "Who is eligible for On Your Six Foundation programs?",
+      question: "Who is eligible for On Your Six / SafeHaven programs?",
       answer:
-        "Our housing access, case management, and supportive wellness services are tailored specifically for honorably discharged military veterans and active or former first responders in need of housing stability.",
+        "Housing access, case management, and supportive wellness services are tailored for military veterans and first responders in need of housing stability. Contact Veterans First Foundation for eligibility details.",
     },
   ];
 
@@ -48,7 +53,8 @@ export const FAQPage: React.FC = () => {
                 Frequently Asked Questions
               </h2>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                Find answers to common questions about On Your Six Foundation, our SafeHaven initiative, and how you can get involved.
+                Find answers about the On Your Six program, SafeHaven, and how they continue under
+                Veterans First Foundation.
               </p>
             </div>
 

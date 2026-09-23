@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Home, Handshake, Landmark, ChevronRight } from "lucide-react";
+import { Home, Handshake, Landmark, ChevronRight, ExternalLink } from "lucide-react";
+import { OY6, VFF } from "@/lib/site";
 
 export const IndexPage: React.FC = () => {
-  // Slideshow background images
   const slides = [
     "https://vibe.filesafe.space/1786084625277767261/assets/bd1d96a6-1218-42bc-931a-6b692706f483.jpg",
     "https://vibe.filesafe.space/1786084625277767261/assets/6e77c763-248d-4487-bf65-d793851b35e5.jpg",
@@ -11,8 +11,6 @@ export const IndexPage: React.FC = () => {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  // Rotating words
   const words = ["stability", "support", "community"];
   const [wordIndex, setWordIndex] = useState(0);
 
@@ -20,11 +18,9 @@ export const IndexPage: React.FC = () => {
     const slideInterval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
-
     const wordInterval = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % words.length);
     }, 2500);
-
     return () => {
       clearInterval(slideInterval);
       clearInterval(wordInterval);
@@ -32,6 +28,11 @@ export const IndexPage: React.FC = () => {
   }, [slides.length, words.length]);
 
   const partners = [
+    {
+      name: VFF.name,
+      logo: VFF.logoUrl,
+      link: VFF.url,
+    },
     {
       name: "Net Zero for Heroes",
       logo: "https://vibe.filesafe.space/1786084625277767261/assets/031228a7-5b05-40eb-91b5-a33e2728f87b.png",
@@ -61,7 +62,6 @@ export const IndexPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col pt-[72px]">
-      {/* Hero Section with Slideshow */}
       <section className="relative h-[85vh] min-h-[550px] flex items-center justify-center text-center overflow-hidden">
         {slides.map((slide, index) => (
           <div
@@ -72,11 +72,22 @@ export const IndexPage: React.FC = () => {
             style={{ backgroundImage: `url('${slide}')` }}
           />
         ))}
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/60" />
 
-        {/* Hero Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
+          <a
+            href={VFF.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mb-6 mx-auto bg-black/40 border border-white/20 rounded-full px-4 py-2 text-xs sm:text-sm text-gray-200 hover:border-[#ff5e00] hover:text-white transition-colors"
+          >
+            <img src={VFF.logoUrl} alt="" className="h-6 w-auto object-contain" />
+            <span>
+              A permanent program of <strong className="text-white">{VFF.name}</strong>
+            </span>
+            <ExternalLink className="w-3.5 h-3.5 text-[#ff5e00]" />
+          </a>
+
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
             Building{" "}
             <span className="text-[#ff5e00] underline decoration-[#ff5e00] inline-block min-w-[180px]">
@@ -85,20 +96,47 @@ export const IndexPage: React.FC = () => {
             . Empowering Veterans and First Responders
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto">
-            Supporting Our Heroes: Building Pathways to Housing and Well-Being.
+            On Your Six began as an incubator for SafeHaven housing pathways. That work is now a
+            permanent program of {VFF.name} — still on the ground for our heroes.
           </p>
-          <div className="mt-8 flex justify-center">
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
             <Link
               to="/contact"
               className="bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm sm:text-base px-8 py-4 rounded uppercase tracking-wider transition-all transform hover:-translate-y-0.5 shadow-lg"
             >
-              REQUEST INFORMATION
+              Request Information
             </Link>
+            <a
+              href={VFF.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white/10 hover:bg-white/20 border border-white/40 text-white font-bold text-sm sm:text-base px-8 py-4 rounded uppercase tracking-wider transition-all"
+            >
+              Visit vetfirst.org
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Intro & 3 Core Offerings Section */}
+      {/* Congrats / transition band */}
+      <section className="bg-[#2d3136] text-white py-10 px-4 border-b border-[#ff5e00]/40">
+        <div className="max-w-4xl mx-auto text-center space-y-3">
+          <p className="text-[#ff5e00] text-xs font-bold uppercase tracking-[0.2em]">
+            Congratulations — job well done
+          </p>
+          <h2 className="text-xl sm:text-2xl font-extrabold">
+            From incubator to permanent program
+          </h2>
+          <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+            {OY6.legacyNote} Alongside SafeHaven, On Your Six continues under{" "}
+            <a href={VFF.url} className="text-[#ff5e00] font-semibold underline" target="_blank" rel="noopener noreferrer">
+              {VFF.name}
+            </a>
+            . This site is the program home and a chronicle of that success.
+          </p>
+        </div>
+      </section>
+
       <section className="py-16 sm:py-20 bg-white text-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -106,12 +144,12 @@ export const IndexPage: React.FC = () => {
               Be a Part of the Solution. Support Our Heroes.
             </h2>
             <p className="mt-4 text-gray-600 italic text-base sm:text-lg">
-              Through tailored programs and partnerships, we connect veterans and first responders with the resources and support they need to build stable and fulfilling lives.
+              Through On Your Six and SafeHaven — now permanent programs of {VFF.name} — we connect
+              veterans and first responders with housing, case management, and supportive services.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Box 1 */}
             <div className="bg-gray-50 p-8 rounded-lg border border-gray-100 hover:shadow-xl transition-all text-center flex flex-col items-center">
               <div className="w-16 h-16 bg-[#ff5e00]/10 text-[#ff5e00] rounded-full flex items-center justify-center mb-6">
                 <Home className="w-8 h-8" />
@@ -120,18 +158,15 @@ export const IndexPage: React.FC = () => {
               <p className="text-gray-600 text-sm mb-6 flex-1">
                 Shelters offering semi-private bedrooms, shared spaces, and essential facilities.
               </p>
-              <a
-                href="https://vibe.filesafe.space/1786084625277767261/assets/a89db4ed-fa33-4769-9869-0a4e12e06e51.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/programs"
                 className="text-[#ff5e00] font-bold text-sm uppercase tracking-wider hover:underline flex items-center"
               >
                 <span>Learn More</span>
                 <ChevronRight className="w-4 h-4 ml-1" />
-              </a>
+              </Link>
             </div>
 
-            {/* Box 2 */}
             <div className="bg-gray-50 p-8 rounded-lg border border-gray-100 hover:shadow-xl transition-all text-center flex flex-col items-center">
               <div className="w-16 h-16 bg-[#ff5e00]/10 text-[#ff5e00] rounded-full flex items-center justify-center mb-6">
                 <Handshake className="w-8 h-8" />
@@ -141,17 +176,16 @@ export const IndexPage: React.FC = () => {
                 Personalized guidance to address individual needs and challenges.
               </p>
               <a
-                href="https://vibe.filesafe.space/1786084625277767261/assets/a89db4ed-fa33-4769-9869-0a4e12e06e51.pdf"
+                href={VFF.programsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#ff5e00] font-bold text-sm uppercase tracking-wider hover:underline flex items-center"
               >
-                <span>Learn More</span>
+                <span>VFF Programs</span>
                 <ChevronRight className="w-4 h-4 ml-1" />
               </a>
             </div>
 
-            {/* Box 3 */}
             <div className="bg-gray-50 p-8 rounded-lg border border-gray-100 hover:shadow-xl transition-all text-center flex flex-col items-center">
               <div className="w-16 h-16 bg-[#ff5e00]/10 text-[#ff5e00] rounded-full flex items-center justify-center mb-6">
                 <Landmark className="w-8 h-8" />
@@ -161,12 +195,12 @@ export const IndexPage: React.FC = () => {
                 Access to job training, education, and mental health counseling.
               </p>
               <a
-                href="https://vibe.filesafe.space/1786084625277767261/assets/a89db4ed-fa33-4769-9869-0a4e12e06e51.pdf"
+                href={VFF.resourcesUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#ff5e00] font-bold text-sm uppercase tracking-wider hover:underline flex items-center"
               >
-                <span>Learn More</span>
+                <span>Veteran Resources</span>
                 <ChevronRight className="w-4 h-4 ml-1" />
               </a>
             </div>
@@ -174,66 +208,67 @@ export const IndexPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Embedded Video & SafeHaven Initiative Section */}
       <section className="py-16 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Video Container */}
           <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl bg-black border border-gray-800">
             <iframe
               src="https://www.youtube.com/embed/pDQV8zZp4d4"
-              title="On Your Six Foundation scene in CBS Miami on Veterans Day"
+              title="On Your Six and SafeHaven — CBS Miami Veterans Day"
               className="absolute inset-0 w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
           </div>
 
-          {/* SafeHaven Info */}
           <div>
+            <p className="text-[#ff5e00] text-xs font-bold uppercase tracking-wider mb-2">
+              Permanent program · {VFF.shortName}
+            </p>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-6">
-              OY6 SafeHaven Initiative
+              On Your Six &amp; SafeHaven
             </h2>
             <p className="text-gray-300 leading-relaxed mb-6">
-              The OY6 model has significantly improved housing stability, mental health outcomes, and income for veterans. By addressing complex needs through tailored housing access and resource connections, we empower those who served to rebuild their lives with dignity and stability.
+              The On Your Six model — incubated alongside SafeHaven — improved housing stability,
+              mental health outcomes, and income for veterans. That proven work continues permanently
+              under {VFF.name}, with the same commitment to dignity and stability.
             </p>
 
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              <li className="flex items-center space-x-3 text-gray-200">
-                <span className="w-2.5 h-2.5 bg-[#ff5e00] rounded-full" />
-                <span>Mental Health Counseling</span>
-              </li>
-              <li className="flex items-center space-x-3 text-gray-200">
-                <span className="w-2.5 h-2.5 bg-[#ff5e00] rounded-full" />
-                <span>Employment Assistance</span>
-              </li>
-              <li className="flex items-center space-x-3 text-gray-200">
-                <span className="w-2.5 h-2.5 bg-[#ff5e00] rounded-full" />
-                <span>Community Outreach</span>
-              </li>
-              <li className="flex items-center space-x-3 text-gray-200">
-                <span className="w-2.5 h-2.5 bg-[#ff5e00] rounded-full" />
-                <span>Life Skills Training</span>
-              </li>
+              {["Mental Health Counseling", "Employment Assistance", "Community Outreach", "Life Skills Training"].map(
+                (item) => (
+                  <li key={item} className="flex items-center space-x-3 text-gray-200">
+                    <span className="w-2.5 h-2.5 bg-[#ff5e00] rounded-full" />
+                    <span>{item}</span>
+                  </li>
+                ),
+              )}
             </ul>
 
-            <a
-              href="https://vibe.filesafe.space/1786084625277767261/assets/a89db4ed-fa33-4769-9869-0a4e12e06e51.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm px-8 py-3 rounded uppercase tracking-wider transition-colors"
-            >
-              LEARN MORE
-            </a>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                to="/programs"
+                className="inline-block bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm px-8 py-3 rounded uppercase tracking-wider transition-colors"
+              >
+                Learn More
+              </Link>
+              <a
+                href={VFF.programsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block border border-white/40 hover:border-[#ff5e00] text-white font-bold text-sm px-8 py-3 rounded uppercase tracking-wider transition-colors"
+              >
+                All VFF Programs
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Partners Banner Carousel */}
       <section className="py-12 bg-gray-100 border-y border-gray-200 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 text-center mb-8">
           <h2 className="text-2xl font-bold text-gray-900">Our Trusted Partners</h2>
           <p className="text-gray-600 italic text-sm mt-1">
-            We work with a network of organizations dedicated to improving housing stability and access for veterans.
+            Led by {VFF.name}, with a network dedicated to housing stability for veterans.
           </p>
         </div>
 
@@ -256,7 +291,6 @@ export const IndexPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Impact Numbers & Family Image Section */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -264,7 +298,9 @@ export const IndexPage: React.FC = () => {
               Driving Real Change for The Hero Community
             </h2>
             <p className="text-gray-600 italic leading-relaxed mb-8">
-              At On Your Six Foundation, we connect veterans with the resources they need to overcome challenges and achieve long-term stability. From housing solutions to mental health support, we are making an impact where it matters most.
+              Through On Your Six — now a permanent program of {VFF.name} — we connect veterans with
+              housing solutions, mental health support, and pathways to purpose. The incubator chapter
+              is complete; the mission continues.
             </p>
 
             <div className="grid grid-cols-3 gap-6 text-center border-t border-gray-100 pt-8">
@@ -299,93 +335,128 @@ export const IndexPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Four Pillars Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-2xl sm:text-4xl font-extrabold text-gray-900">Our Pillars</h2>
             <p className="text-gray-600 italic text-sm sm:text-base mt-2">
-              Guided by four core pillars, we create pathways for veterans and first responders to find stability, wellness, and renewed purpose in their lives.
+              Guided by four core pillars — shared with {VFF.name} — we create pathways for veterans
+              and first responders to find stability, wellness, and renewed purpose.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
-              <div className="w-12 h-12 bg-[#ff5e00] text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
-                1
+            {[
+              {
+                n: 1,
+                title: "Housing",
+                body: "Connecting heroes with stable, affordable housing solutions to lay the foundation for a brighter future.",
+              },
+              {
+                n: 2,
+                title: "Wellness",
+                body: "Promoting mental and physical well-being through access to tailored resources and supportive services.",
+              },
+              {
+                n: 3,
+                title: "Purpose",
+                body: "Empowering individuals to rediscover their sense of purpose and contribute meaningfully to their communities.",
+              },
+              {
+                n: 4,
+                title: "Faith",
+                body: "Offering spiritual support and guidance to help veterans find strength and resilience during challenging times.",
+              },
+            ].map((p) => (
+              <div
+                key={p.n}
+                className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center"
+              >
+                <div className="w-12 h-12 bg-[#ff5e00] text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
+                  {p.n}
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{p.title}</h3>
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{p.body}</p>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Housing</h3>
-              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                Connecting heroes with stable, affordable housing solutions to lay the foundation for a brighter future.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
-              <div className="w-12 h-12 bg-[#ff5e00] text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
-                2
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Wellness</h3>
-              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                Promoting mental and physical well-being through access to tailored resources and supportive services.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
-              <div className="w-12 h-12 bg-[#ff5e00] text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
-                3
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Purpose</h3>
-              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                Empowering individuals to rediscover their sense of purpose and contribute meaningfully to their communities.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 text-center">
-              <div className="w-12 h-12 bg-[#ff5e00] text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
-                4
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Faith</h3>
-              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                Offering spiritual support and guidance to help veterans find strength and resilience during challenging times.
-              </p>
-            </div>
+            ))}
           </div>
 
           <div className="text-center mt-12">
             <h3 className="text-xl font-bold text-gray-900 mb-4">Join Us in Making a Difference</h3>
             <p className="text-gray-600 italic text-sm max-w-xl mx-auto mb-6">
-              Your time and effort can change the lives of veterans and first responders. Together, we can create pathways to stability, wellness, and renewed purpose.
+              Volunteer with On Your Six through {VFF.name}. Your time creates pathways to stability,
+              wellness, and renewed purpose.
             </p>
-            <Link
-              to="/volunteer"
-              className="inline-block bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm px-8 py-3 rounded uppercase tracking-wider transition-colors shadow-md"
-            >
-              Volunteer with us
-            </Link>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link
+                to="/volunteer"
+                className="inline-block bg-[#ff5e00] hover:bg-[#e05300] text-white font-bold text-sm px-8 py-3 rounded uppercase tracking-wider transition-colors shadow-md"
+              >
+                Volunteer with us
+              </Link>
+              <a
+                href={VFF.volunteerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block border-2 border-[#2d3136] text-[#2d3136] hover:border-[#ff5e00] hover:text-[#ff5e00] font-bold text-sm px-8 py-3 rounded uppercase tracking-wider transition-colors"
+              >
+                VFF Volunteer Hub
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Latest News Preview Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between mb-10">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">News & Updates</h2>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
+                Chronicles of Success
+              </h2>
               <p className="text-gray-600 italic text-sm mt-1">
-                Discover the latest stories, milestones, and progress from On Your Six Foundation.
+                Milestones from the On Your Six journey — incubator to permanent program.
               </p>
             </div>
             <Link
               to="/news"
               className="mt-4 sm:mt-0 text-[#ff5e00] font-bold text-sm uppercase tracking-wider hover:underline flex items-center"
             >
-              <span>Read More News</span>
+              <span>Read the Chronicles</span>
               <ChevronRight className="w-4 h-4 ml-1" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-xl overflow-hidden shadow-sm border border-gray-100 flex flex-col">
+              <img
+                src={VFF.logoUrl}
+                alt={VFF.name}
+                className="w-full h-52 object-contain bg-[#0a0a0a] p-8"
+              />
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="text-xs text-gray-500 font-semibold block mb-2">2026</span>
+                  <Link to="/news/3">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 hover:text-[#ff5e00] transition-colors">
+                      On Your Six Becomes a Permanent Program of Veterans First Foundation
+                    </h3>
+                  </Link>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    Congratulations on a job well done — the incubator chapter closes as On Your Six
+                    and SafeHaven continue permanently under {VFF.name}.
+                  </p>
+                </div>
+                <Link
+                  to="/news/3"
+                  className="text-[#ff5e00] font-bold text-xs uppercase tracking-wider hover:underline inline-flex items-center"
+                >
+                  <span>Read More</span>
+                  <ChevronRight className="w-3.5 h-3.5 ml-1" />
+                </Link>
+              </div>
+            </div>
+
             <div className="bg-gray-50 rounded-xl overflow-hidden shadow-sm border border-gray-100 flex flex-col">
               <img
                 src="https://vibe.filesafe.space/1786084625277767261/assets/3999675b-9441-44d4-99c7-6336abedcf4b.jpg"
@@ -397,11 +468,12 @@ export const IndexPage: React.FC = () => {
                   <span className="text-xs text-gray-500 font-semibold block mb-2">December 12, 2024</span>
                   <Link to="/news/1">
                     <h3 className="text-lg font-bold text-gray-900 mb-2 hover:text-[#ff5e00] transition-colors">
-                      On Your Six Foundation Launches New Website
+                      On Your Six Launches Its Program Website
                     </h3>
                   </Link>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    The On Your Six Foundation is proud to announce the launch of its brand-new website to reach more veterans and supporters...
+                    A dedicated home for SafeHaven stories, housing pathways, and ways to get
+                    involved — now part of the VFF program family.
                   </p>
                 </div>
                 <Link
@@ -425,11 +497,12 @@ export const IndexPage: React.FC = () => {
                   <span className="text-xs text-gray-500 font-semibold block mb-2">December 11, 2024</span>
                   <Link to="/news/2">
                     <h3 className="text-lg font-bold text-gray-900 mb-2 hover:text-[#ff5e00] transition-colors">
-                      On Your Six Foundation Launches SafeHaven Program to Support Veterans
+                      SafeHaven Launches to Support Veterans
                     </h3>
                   </Link>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    The On Your Six Foundation is proud to announce the official launch of its groundbreaking SafeHaven Program...
+                    The SafeHaven initiative — incubated with On Your Six — opens pathways out of
+                    housing instability for homeless veterans.
                   </p>
                 </div>
                 <Link

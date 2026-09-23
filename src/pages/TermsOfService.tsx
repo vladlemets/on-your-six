@@ -1,5 +1,6 @@
 import React from "react";
 import { PageHeader } from "../components/PageHeader";
+import { VFF } from "@/lib/site";
 
 export const TermsOfServicePage: React.FC = () => {
   return (
@@ -11,31 +12,50 @@ export const TermsOfServicePage: React.FC = () => {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Terms of Use</h2>
             <p className="text-sm sm:text-base">
-              Welcome to On Your Six Foundation. By accessing or using our website, you agree to comply with and be bound by the following terms and conditions of use.
+              Welcome to the On Your Six program site, operated in connection with {VFF.name}. By
+              accessing or using this website, you agree to these terms.
             </p>
           </div>
 
           <div>
             <h3 className="text-xl font-bold text-gray-900 mb-3">Acceptance of Terms</h3>
             <p className="text-sm sm:text-base">
-              By using our website oy6.org, you acknowledge that you have read, understood, and agreed to these Terms of Use. If you do not agree, please refrain from using the site.
+              By using this site, you acknowledge that you have read, understood, and agreed to these
+              Terms of Use. If you do not agree, please refrain from using the site. Parent
+              organization policies also apply at{" "}
+              <a
+                href={`${VFF.url}/terms`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#ff5e00] underline font-semibold"
+              >
+                vetfirst.org
+              </a>
+              .
             </p>
           </div>
 
           <div>
             <h3 className="text-xl font-bold text-gray-900 mb-3">Use of Website Content</h3>
             <p className="text-sm sm:text-base">
-              All content provided on oy6.org, including text, logos, graphics, and images, is owned by or licensed to On Your Six Foundation and protected by applicable copyright laws. You may not reproduce or distribute materials without explicit permission.
+              Content on this site — including text, logos, graphics, and images — is owned by or
+              licensed to {VFF.name} / the On Your Six program and protected by applicable copyright
+              laws. You may not reproduce or distribute materials without explicit permission.
             </p>
           </div>
 
           <div>
             <h3 className="text-xl font-bold text-gray-900 mb-3">Questions & Concerns</h3>
             <p className="text-sm sm:text-base">
-              For any questions regarding these terms, please contact us at{" "}
-              <a href="mailto:info@oy6.org" className="text-[#ff5e00] underline font-semibold">
-                info@oy6.org
-              </a>.
+              Contact{" "}
+              <a href={`mailto:${VFF.email}`} className="text-[#ff5e00] underline font-semibold">
+                {VFF.email}
+              </a>{" "}
+              or call{" "}
+              <a href={`tel:${VFF.phoneTel}`} className="text-[#ff5e00] underline font-semibold">
+                {VFF.phoneDisplay}
+              </a>
+              .
             </p>
           </div>
         </div>
