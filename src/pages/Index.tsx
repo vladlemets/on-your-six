@@ -78,20 +78,6 @@ export const IndexPage: React.FC = () => {
         <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center w-full">
-          {/* VFF badge — desktop/tablet: top; mobile: after CTAs */}
-          <a
-            href={VFF.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-4 sm:gap-5 mb-8 bg-black/45 border border-white/25 rounded-full px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-xl text-gray-200 hover:border-[#ff5e00] hover:text-white transition-colors shadow-lg"
-          >
-            <img src={VFF.logoUrl} alt="" className="h-12 sm:h-16 w-auto object-contain" />
-            <span className="text-left leading-snug">
-              A permanent program of{" "}
-              <strong className="text-white whitespace-nowrap">{VFF.name}</strong>
-            </span>
-          </a>
-
           <h1 className="text-center">
             <span className="block text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-none uppercase">
               Building{" "}
@@ -134,16 +120,21 @@ export const IndexPage: React.FC = () => {
             </a>
           </div>
 
+          {/* VFF badge — under CTAs, above section one (all breakpoints) */}
           <a
             href={VFF.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="sm:hidden mt-8 inline-flex items-center gap-3 w-full max-w-md justify-center bg-black/45 border border-white/25 rounded-full px-5 py-3.5 text-sm text-gray-200"
+            className="mt-8 inline-flex items-center gap-3 sm:gap-5 w-full max-w-md sm:max-w-none sm:w-auto justify-center bg-black/45 border border-white/25 rounded-full px-5 sm:px-10 py-3.5 sm:py-5 text-sm sm:text-xl text-gray-200 hover:border-[#ff5e00] hover:text-white transition-colors shadow-lg"
           >
-            <img src={VFF.logoUrl} alt="" className="h-10 w-auto object-contain" />
+            <img
+              src={VFF.logoUrl}
+              alt=""
+              className="h-10 sm:h-16 w-auto object-contain shrink-0"
+            />
             <span className="text-left leading-snug">
               A permanent program of{" "}
-              <strong className="text-white">{VFF.name}</strong>
+              <strong className="text-white sm:whitespace-nowrap">{VFF.name}</strong>
             </span>
           </a>
         </div>
